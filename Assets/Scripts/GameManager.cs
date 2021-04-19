@@ -19,12 +19,18 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Level_01");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Quit()
     {
-        
+        Application.Quit();
     }
 
 }
