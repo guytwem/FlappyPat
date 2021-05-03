@@ -883,7 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curSobriety: 0
-  maxSobriety: 10
+  maxSobriety: 12
   sobrietyBar: {fileID: 53221457}
 --- !u!61 &1435158127
 BoxCollider2D:
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1435158129}
-  speed: 6
+  speed: 10
   player: {fileID: 1435158125}
   drunk: {fileID: 1919487804}
   win: {fileID: 202821963}
@@ -946,7 +946,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.6
+  m_GravityScale: 0.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

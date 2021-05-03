@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 177696895}
-  speed: 20
+  speed: 10
   player: {fileID: 177696893}
   drunk: {fileID: 228393188}
   win: {fileID: 103039214}
@@ -214,7 +214,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.6
+  m_GravityScale: 0.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curSobriety: 0
-  maxSobriety: 20
+  maxSobriety: 8
   sobrietyBar: {fileID: 850144216}
 --- !u!1 &228393188
 GameObject:

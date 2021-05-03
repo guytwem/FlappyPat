@@ -6,19 +6,19 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D playerBody;
-    public float speed = 20f;
+    public float speed = 10f;
     public GameObject player;
     public GameObject drunk;
     public GameObject win;
     public GameObject winButton;
     public GameObject mainmenuButton;
     public SobrietyBar sobrietyBar;
-    
-    
+
    
 
-    
-    
+   
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +69,14 @@ public class PlayerMovement : MonoBehaviour
              new WaitForSeconds(5);
             SceneManager.LoadScene("Level_02");
         }
-
+        if(player.transform.position.y > 6)
+        {
+            player.transform.position = new Vector3(-6.95f, -5,0);
+        }
+        if (player.transform.position.y < -6)
+        {
+            player.transform.position = new Vector3(-6.95f, 5, 0);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
