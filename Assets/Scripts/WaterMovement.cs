@@ -13,7 +13,7 @@ public class WaterMovement : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Start() // sends water blocks left across the screen.
     {
         rb = GetComponent<Rigidbody2D>();
 

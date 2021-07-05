@@ -13,7 +13,7 @@ public class BlockScript : MonoBehaviour
 
     private void Awake()
     {
-        BeginSpawning();
+        BeginSpawning(); // start spawning blocks
     }
 
     // Start is called before the first frame update
@@ -22,9 +22,9 @@ public class BlockScript : MonoBehaviour
         
     }
 
-    public void BeginSpawning() => StartCoroutine("Spawning");
+    public void BeginSpawning() => StartCoroutine("Spawning"); // this function starts the spawning coroutine
 
-    IEnumerator Spawning()
+    IEnumerator Spawning() // block spawning coroutine.
     {
         yield return new WaitForSeconds(1f);
 
@@ -37,8 +37,8 @@ public class BlockScript : MonoBehaviour
 
     public GameObject SpawnBlocks()
     {
-        Vector3 randomSpawn = new Vector3(8, Random.Range(5, -5), 0);
-        var blocks = Instantiate(blocksPrefab, randomSpawn, Quaternion.identity);
+        Vector3 randomSpawn = new Vector3(8, Random.Range(5, -5), 0); // randomises spawn location
+        var blocks = Instantiate(blocksPrefab, randomSpawn, Quaternion.identity); // instantiates blocks at the random spawn point.
         blocks.SetActive(true);
         return blocks;
 
@@ -46,7 +46,7 @@ public class BlockScript : MonoBehaviour
 
     }
     
-    public GameObject SpawnWater()
+    public GameObject SpawnWater() // radnomises the location and instantiates a water block.
     {
         Vector3 randomSpawn = new Vector3(8, Random.Range(5, -5), 0);
         var waterBlocks = Instantiate(waterPrefab, randomSpawn, Quaternion.identity);

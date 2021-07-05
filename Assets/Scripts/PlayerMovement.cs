@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         
-        playerBody.GetComponent<Rigidbody2D>();
+        playerBody.GetComponent<Rigidbody2D>(); // getting player rigidbody
+        //sets the win screens to false
         drunk.SetActive(false);
         win.SetActive(false);
         winButton.SetActive(false);
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {
             mainmenuButton.SetActive(true);
             Time.timeScale = 0;
-            
+            // this gets the pause menu and stops game time.
 
         }
         if (Input.touchCount > 0)
@@ -48,16 +49,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerBody.AddForce(new Vector2(player.transform.position.x, speed));
             }
+            //when you touch on the screen adds force to the player
         }
 
         if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         {
             playerBody.AddForce(new Vector2(player.transform.position.x, speed));
+            //when space is pressed or mouse button it moves the player
         }
 
         if(SceneManager.GetActiveScene().name == ("Level_02") && sobrietyBar.sobriety.curSobriety == sobrietyBar.sobriety.maxSobriety)
         {
-            //you win
+            //wnen you win activate the end screen.
             win.SetActive(true);
             winButton.SetActive(true);
             mainmenuButton.SetActive(true);
@@ -65,10 +68,12 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(sobrietyBar.sobriety.curSobriety == sobrietyBar.sobriety.maxSobriety)
         {
+            //starts the second level after you complete the first.
             drunk.SetActive(true);
              new WaitForSeconds(5);
             SceneManager.LoadScene("Level_02");
         }
+        //if the player goes off the screen then spawn him at the opposite side.
         if(player.transform.position.y > 6)
         {
             player.transform.position = new Vector3(-6.95f, -5,0);
@@ -82,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
     {
         sobrietyBar.SetSobriety();
         sobrietyBar.sobriety.curSobriety += 1;
+        //if the player hits a block add sobriety
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

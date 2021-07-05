@@ -12,10 +12,10 @@ public class SobrietyBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sobriety = GameObject.FindGameObjectWithTag("Player").GetComponent<Sobriety>();
-        sobrietyBar = GetComponent<Slider>();
-        sobrietyBar.maxValue = sobriety.maxSobriety;
-        sobrietyBar.value = sobriety.curSobriety;
+        sobriety = GameObject.FindGameObjectWithTag("Player").GetComponent<Sobriety>(); // Gets the sobriety script off the player
+        sobrietyBar = GetComponent<Slider>(); // Sets the slider component 
+        sobrietyBar.maxValue = sobriety.maxSobriety; // Sets max value to sobriety max value
+        sobrietyBar.value = sobriety.curSobriety; // the bar value equals the current sobriety
     }
 
     private void Update()
@@ -25,9 +25,9 @@ public class SobrietyBar : MonoBehaviour
 
     public void SetSobriety()
     {
-        sobrietyBar.value += 1;
+        sobrietyBar.value += 1; // Adds one sobriety when the player jumps on a block
     }
-    public void Sobering()
+    public void Sobering() // minus one if the player hits water block.
     {
         sobrietyBar.value -= 1;
     }

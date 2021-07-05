@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    private Rigidbody2D rb; 
 
     public GameObject blocksPrefab;
     
@@ -12,15 +12,15 @@ public class BlockMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>(); // get rigidbody component
 
-        rb.AddForce(new Vector2(-100, blocksPrefab.transform.position.y));
+        rb.AddForce(new Vector2(-100, blocksPrefab.transform.position.y)); // add force to the blocks rigidbody sending it left
         
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(blocksPrefab);
+        Destroy(blocksPrefab); // destroy the block when it gets hit.
     }
 
 }
