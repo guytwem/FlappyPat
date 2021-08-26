@@ -5,26 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D playerBody;
-    public float speed = 10f;
-    public GameObject player;
+    #region player Var
+    public Rigidbody2D playerBody; //Player Rigidbody Reference
+    public float speed = 10f; // player speed
+    public GameObject player; //player gameObject
+    
+
+    #endregion
+
+    #region UI Var
+    //UI GameObjects
     public GameObject drunk;
     public GameObject win;
     public GameObject winButton;
     public GameObject mainmenuButton;
     public SobrietyBar sobrietyBar;
+     
 
-   
-
-   
-
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         
         playerBody.GetComponent<Rigidbody2D>(); // getting player rigidbody
-        //sets the win screens to false
+        //turning UI Off 
         drunk.SetActive(false);
         win.SetActive(false);
         winButton.SetActive(false);
@@ -36,9 +41,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // this gets the pause menu and stops game time when the player presses ESC.
             mainmenuButton.SetActive(true);
             Time.timeScale = 0;
-            // this gets the pause menu and stops game time.
+            
 
         }
         if (Input.touchCount > 0)
@@ -93,11 +99,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         sobrietyBar.Sobering();
-        if(sobrietyBar.sobriety.curSobriety > 0)
+        if(sobrietyBar.sobriety.curSobriety > 0) //if sobriety is above 0 then take one away.
         {
             sobrietyBar.sobriety.curSobriety--;
         }
-        Destroy(collision.gameObject);
+        Destroy(collision.gameObject); // and Destroy the gameObject
     }
 
 
